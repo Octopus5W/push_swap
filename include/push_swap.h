@@ -3,23 +3,23 @@
 
 # include "../printf/libft.h"
 
-struct list
+typedef struct s_list
 {
-	struct list*	before_nb;
+	t_list*	before_nb;
 	int		nb;
-	struct list*	after_nb;
-};
+	t_list*	after_nb;
+} t_list;
 
-struct list pa(struct list a, struct list b);
-struct list pb(struct list a, struct list b);
-struct list rra(struct list a);
-struct list rrb(struct list b);
-struct list rrr(struct list a , struct list b);
-struct list ra(struct list a);
-struct list rb(struct list b);
-struct list rr(struct list a , struct list b);
-struct list sa(struct list a);
-struct list sb(struct list b);
-struct list ss(struct list a , struct list b);
+t_list pa(t_list a, t_list b);
+t_list pb(t_list a, t_list b);
+t_list rra(t_list a);
+t_list rrb(t_list b);
+t_list rrr(t_list a , t_list b);
+t_list ra(t_list a);
+t_list rb(t_list b);
+t_list rr(t_list a , t_list b);
+t_list sa(t_list a);
+t_list sb(t_list b);
+t_list ss(t_list a , t_list b);
 
 #endif

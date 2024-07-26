@@ -1,11 +1,11 @@
 #include "../include/push_swap.h"
 
-struct list pa(struct list a, struct list b)
+t_list pa(t_list a, t_list b)
 {
 	
 };
 
-struct list pb(struct list a, struct list b)
+t_list pb(t_list a, t_list b)
 {
 	
 };
