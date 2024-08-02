@@ -1,4 +1,4 @@
-PUSH_SWAP = push_swap
+NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 PRINTF_DIR = printf
@@ -10,7 +10,12 @@ OBJ_DIR = obj
 RM = rm -rf
 
 SRCS = \
-	push_swap.c
+	check_av.c\
+	push_swap.c\
+	# operations/push.c\
+	# operations/reverse.c\
+	# operations/rotate.c\
+	# operations/swap.c\
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 

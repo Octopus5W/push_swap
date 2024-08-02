@@ -1,14 +1,28 @@
 #include "../include/push_swap.h"
 
-t_list sa(t_list a)
+void sa(t_variable var)
 {
-	
+	var.count_mouv++;
+	ft_printf("sa\n");
+	var.t_list[0] = var.list_a[0];
+	var.list_a[0] = var.list_a[1];
+	var.list_a[1] = var.t_list[0];
 };
-t_list sb(t_list b)
+
+void sb(t_variable var)
 {
-	
+	var.count_mouv++;
+	ft_printf("sb\n");
+	var.t_list[0] = var.list_b[0];
+	var.list_b[0] = var.list_b[1];
+	var.list_b[1] = var.t_list[0];
 };
-t_list ss(t_list a , t_list b)
+
+void ss(t_variable var)
 {
-	
+	var.count_mouv--;
+	ft_printf("ss\n");
+	sa(var);
+	sb(var);
+
 };
