@@ -70,10 +70,37 @@ int	check_av_double(int ac, char *av[])
 }
 int	check_av(int ac, char *av[])
 {
-	if (check_av_isInt(ac, av))
-		return (0);
-	else if (check_av_double(ac, av))
-		return (0);
-	else
-		return(ac - 1);
+	char **tab;
+	int i;
+	int check;
+
+	check = 0;
+	if (ac > 2)
+	{
+		if (check_av_isInt(ac, av))
+			check = 0;
+		else if (check_av_double(ac, av))
+			check = 0;
+		else
+			check = ac - 1;
+	}
+	else if (ac == 2)
+	{
+		tab = ft_split(av[1], ' ');
+		if (!tab)
+			return (0);
+		i = 0;
+		while (tab[i])
+			i++;
+		if (check && check_av_isInt(i, tab))
+			check = 0;
+		else if (check && check_av_double(i, tab))
+			check = 0;
+		else
+			check = i - 1;
+		while (--i >= 0)
+			free(tab[i]);
+		free(tab);
+	}
+	return (check);
 }

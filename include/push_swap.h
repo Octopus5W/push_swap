@@ -2,6 +2,7 @@
 #define PUSH_SWAP_H
 
 # include "../printf/libft.h"
+# include <stdlib.h>
 
 typedef struct s_variable
 {
@@ -18,17 +19,19 @@ typedef struct s_variable
 } t_variable;
 
 int	ft_atoi(char *s);
+char	**ft_split(char const *s, char c);
 int	check_av(int ac, char *av[]);
-t_variable pa(t_variable var);
-t_variable pb(t_variable var);
-t_variable rra(t_variable var);
-t_variable rrb(t_variable var);
-t_variable rrr(t_variable var);
-t_variable ra(t_variable var);
-t_variable rb(t_variable var);
-t_variable rr(t_variable var);
-t_variable sa(t_variable var);
-t_variable sb(t_variable var);
-t_variable ss(t_variable var);
+int *cp_list(int *dst, int *src, int i);
+void pa(t_variable var);
+void pb(t_variable var);
+void rra(t_variable var);
+void rrb(t_variable var);
+void rrr(t_variable var);
+void ra(t_variable var);
+void rb(t_variable var);
+void rr(t_variable var);
+void sa(t_variable var);
+void sb(t_variable var);
+void ss(t_variable var);
 
 #endif

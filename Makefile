@@ -12,10 +12,12 @@ RM = rm -rf
 SRCS = \
 	check_av.c\
 	push_swap.c\
-	# operations/push.c\
-	# operations/reverse.c\
-	# operations/rotate.c\
-	# operations/swap.c\
+	ft_split.c\
+	utils.c\
+	push.c\
+	reverse.c\
+	rotate.c\
+	swap.c     
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 

@@ -9,7 +9,10 @@ void	set_list(t_variable var, int count_nb, char *nb[])
 	var.count_a = count_nb - 1;
 	var.count_b = 0;
 	while (var.i < var.count_nb)
-		var.list_a[var.i] = ft_atoi(nb[var.i++]);
+	{
+		var.list_a[var.i] = ft_atoi(nb[var.i]);
+		var.i++;
+	}
 }
 
 int main (int ac, char *av[])
@@ -18,6 +21,6 @@ int main (int ac, char *av[])
 
 	if (check_av(ac, av))
 		return (0);
-	set_list_a(var, ac, av);
+	set_list(var, ac, av);
 	
 }
