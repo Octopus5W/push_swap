@@ -7,11 +7,11 @@
 typedef struct s_variable
 {
 	int	list_a[500];
-	int	count_a;
+	int	size_a;
 	int	list_b[500];
-	int	count_b;
+	int	size_b;
 	int t_list[500];
-	int t_count;
+	int t_size;
 	int count_nb;
 	int count_mouv;
 	int i;

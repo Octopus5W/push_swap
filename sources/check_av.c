@@ -78,11 +78,9 @@ int	check_av(int ac, char *av[])
 	if (ac > 2)
 	{
 		if (check_av_isInt(ac, av))
-			check = 0;
+			check = 1;
 		else if (check_av_double(ac, av))
-			check = 0;
-		else
-			check = ac - 1;
+			check = 1;
 	}
 	else if (ac == 2)
 	{
@@ -93,11 +91,9 @@ int	check_av(int ac, char *av[])
 		while (tab[i])
 			i++;
 		if (check && check_av_isInt(i, tab))
-			check = 0;
+			check = 1;
 		else if (check && check_av_double(i, tab))
-			check = 0;
-		else
-			check = i - 1;
+			check = 1;
 		while (--i >= 0)
 			free(tab[i]);
 		free(tab);
