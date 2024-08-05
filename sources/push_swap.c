@@ -31,6 +31,7 @@ void print_lists(t_variable var)
 		else
 			ft_printf("\n");
 	}
+	ft_printf("_________________________________________\n\n");
 }
 
 void	set_list(t_variable *var, int count_nb, char *nb[])
@@ -55,7 +56,21 @@ int main (int ac, char *av[])
 	if (check_av(ac, av))
 		return (0);
 	// ne fonctionne pas avec 2 argument : faire le split
-	set_list(&var, ac - 1, av + 1);
-	print_lists(var);
+	if (ac > 2)
+		set_list(&var, ac - 1, av + 1);
+	else if (ac == 2)
+	{
+		var.i = 0;
+		var.split = ft_split2(av[1]);
+		ft_printf("ok\n");
+		if (!var.split || !*var.split)
+			ft_printf("error : format argument");
+		while (var.split && var.split[var.i])
+			ft_printf("%s\n", var.split[var.i++]);
+		ft_free(3, var.split);
+
+	}
+	else
+		ft_printf ("error : count argument");
 	return (0);
 }

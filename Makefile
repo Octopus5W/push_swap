@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 PRINTF_DIR = printf
 PRINTF = $(PRINTF_DIR)/printf.a
 INC_DIR = include
@@ -13,6 +13,7 @@ SRCS = \
 	check_av.c\
 	push_swap.c\
 	ft_split.c\
+	ft_split2.c\
 	utils.c\
 	push.c\
 	reverse.c\

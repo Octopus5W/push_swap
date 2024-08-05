@@ -12,3 +12,14 @@ int *cp_list(int *dst, int *src, int i)
 	}
 	return (dst);
 }
+
+void	ft_free(int size, char **tab)
+{
+		while (--size >= 0)
+		{
+			free(tab[size]);
+			tab[size] = NULL;
+		}
+		free (tab);
+		tab = NULL;
+}

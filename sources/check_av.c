@@ -72,31 +72,25 @@ int	check_av(int ac, char *av[])
 {
 	char **tab;
 	int i;
-	int check;
 
-	check = 0;
 	if (ac > 2)
 	{
-		if (check_av_isInt(ac, av))
-			check = 1;
-		else if (check_av_double(ac, av))
-			check = 1;
+		if (check_av_isInt(ac, av) || check_av_double(ac, av))
+			return (1);
+		return (0);
 	}
 	else if (ac == 2)
 	{
 		tab = ft_split(av[1], ' ');
 		if (!tab)
-			return (0);
+			return (1);
 		i = 0;
 		while (tab[i])
 			i++;
-		if (check && check_av_isInt(i, tab))
-			check = 1;
-		else if (check && check_av_double(i, tab))
-			check = 1;
-		while (--i >= 0)
-			free(tab[i]);
-		free(tab);
+		if (check_av_isInt(i, tab) || check_av_double(i, tab))
+			return (ft_free(i, tab), 1);
+		return (ft_free(i, tab), 0);
 	}
-	return (check);
+	else
+		return (1);
 }

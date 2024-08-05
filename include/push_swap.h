@@ -16,12 +16,15 @@ typedef struct s_variable
 	int count_mouv;
 	int i;
 	int j;
+	char **split;
 } t_variable;
 
 int	ft_atoi(char *s);
 char	**ft_split(char const *s, char c);
+char	**ft_split2(char const *s);
 int	check_av(int ac, char *av[]);
 int *cp_list(int *dst, int *src, int i);
+void	ft_free(int size, char **tab);
 void pa(t_variable *var);
 void pb(t_variable *var);
 void rra(t_variable *var);
