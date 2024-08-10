@@ -20,6 +20,7 @@ typedef struct s_variable
 } t_variable;
 
 int	ft_atoi(char *s);
+char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 char	**ft_split2(char const *s);
 int	check_av(int ac, char *av[]);

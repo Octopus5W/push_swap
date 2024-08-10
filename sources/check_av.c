@@ -2,18 +2,30 @@
 
 int is_integer(char *s)
 {
+	int i;
+	char *check;
+
+	i = 0;
 	if(!s || !*s)
 		return (0);
-	while ((*s >= 7 && *s <= 13) || *s == 32)
-		s++;
-	while (*s == '+' || *s == '-')
-		s++;
-	while (s && *s >= '0' && *s <= '9')
-		s++;
-	if (!*s)
-		return (1);
-	else
+	while ((s[i] >= 7 && s[i] <= 13) || s[i] == 32)
+		i++;
+	while (s[i] == '+' || s[i] == '-')
+		i++;
+	while (s[i] >= '0' && s[i] <= '9')
+		i++;
+	if (s[i])
 		return (0);
+	check = ft_itoa(ft_atoi(s));
+	if (!check)
+		return (0);
+	i = 0;
+	while (s[i] == check[i] && check[i] && s[i])
+		i++;
+	if(!s[i] && !check[i])
+		return(free(check), 1);
+	ft_printf("error : only int are supported");
+	return (free(check), 0);
 }
 
 int	ft_atoi(char *s)

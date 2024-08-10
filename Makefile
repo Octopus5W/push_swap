@@ -12,6 +12,7 @@ RM = rm -rf
 SRCS = \
 	check_av.c\
 	push_swap.c\
+	ft_itoa.c\
 	ft_split.c\
 	ft_split2.c\
 	utils.c\

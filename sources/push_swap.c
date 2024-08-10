@@ -34,17 +34,19 @@ void print_lists(t_variable var)
 	ft_printf("_________________________________________\n\n");
 }
 
-void	set_list(t_variable *var, int count_nb, char *nb[])
+void	set_list(t_variable *var, char *nb[])
 {
 	var->i = 0;
 	var->count_mouv = 0;
-	var->count_nb = count_nb;
-	var->size_a = count_nb;
+	var->count_nb = 0;
+	while (nb[var->count_nb])
+		var->count_nb++;
+	var->size_a = var->count_nb;
 	var->size_b = 0;
 	while (var->i < var->count_nb)
 	{
 		var->list_a[var->i] = ft_atoi(nb[var->i]);
-		// ft_printf("%i\t %i\n", var->list_a[var->i], ft_atoi(nb[var->i]));
+		ft_printf("%i\t%i\n", var->list_a[var->i], ft_atoi(nb[var->i]));
 		var->i++;
 	}
 }
@@ -57,20 +59,17 @@ int main (int ac, char *av[])
 		return (0);
 	// ne fonctionne pas avec 2 argument : faire le split
 	if (ac > 2)
-		set_list(&var, ac - 1, av + 1);
+		set_list(&var, av + 1);
 	else if (ac == 2)
 	{
-		var.i = 0;
 		var.split = ft_split2(av[1]);
 		ft_printf("ok\n");
 		if (!var.split || !*var.split)
 			ft_printf("error : format argument");
-		while (var.split && var.split[var.i])
-			ft_printf("%s\n", var.split[var.i++]);
-		ft_free(3, var.split);
-
+		set_list(&var, var.split);
 	}
 	else
 		ft_printf ("error : count argument");
+	system("leaks push_swap");
 	return (0);
 }
