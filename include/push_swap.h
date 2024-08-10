@@ -21,8 +21,7 @@ typedef struct s_variable
 
 int	ft_atoi(char *s);
 char	*ft_itoa(int n);
-char	**ft_split(char const *s, char c);
-char	**ft_split2(char const *s);
+char	**ft_split(char const *s);
 int	check_av(int ac, char *av[]);
 int *cp_list(int *dst, int *src, int i);
 void	ft_free(int size, char **tab);

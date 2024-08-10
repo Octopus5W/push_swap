@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-static int	ft_tablen(char *s, char c)
+static int	ft_tablen(char *s)
 {
 	int	count;
 	int	new;
@@ -23,7 +23,7 @@ static int	ft_tablen(char *s, char c)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] != c)
+		if (s[i] != ' ' || (s[i] >= 7 && s[i] <= 13))
 		{
 			if (new == 1)
 				count++;
@@ -44,7 +44,7 @@ static char	*ft_malloc(char *s, int count)
 	return (s);
 }
 
-static int	ft_setalloc(char **dst, char *src, char c)
+static int	ft_setalloc(char **dst, char *src)
 {
 	int	count;
 	int	i;
@@ -55,9 +55,9 @@ static int	ft_setalloc(char **dst, char *src, char c)
 	while (src[i])
 	{
 		count = 0;
-		while (src[i] && src[i] == c)
+		while (src[i] && (src[i] == ' ' || (src[i] >= 7 && src[i] <= 13)))
 			i++;
-		while (src[i] && src[i] != c)
+		while (src[i] && src[i] != ' ' && (src[i] <= 7 || src[i] >= 13))
 		{
 			count++;
 			i++;
@@ -73,7 +73,7 @@ static int	ft_setalloc(char **dst, char *src, char c)
 	return (-1);
 }
 
-static char	**ft_setstr(char **dst, char *s, char c)
+static char	**ft_setstr(char **dst, char *s)
 {
 	int	i;
 	int	j;
@@ -82,14 +82,14 @@ static char	**ft_setstr(char **dst, char *s, char c)
 	while (*s)
 	{
 		j = 0;
-		while (*s == c && *s)
+		while ((*s == ' ' || (*s >= 7 && *s <= 13)) && *s)
 			s++;
-		while (*s != c && *s)
+		while (*s != ' ' && (*s < 7 || *s > 13) && *s)
 		{
 			dst[i][j] = *s;
 			s++;
 			j++;
-			if (*s == c || *s == '\0')
+			if (*s == ' ' || (*s >= 7 && *s <= 13) || *s == '\0')
 			{
 				dst[i][j] = '\0';
 				i++;
@@ -100,7 +100,7 @@ static char	**ft_setstr(char **dst, char *s, char c)
 	return (dst);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s)
 {
 	char	**tab;
 	int		lenght;
@@ -108,11 +108,11 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	lenght = ft_tablen((char *)s, c);
+	lenght = ft_tablen((char *)s);
 	tab = (char **)malloc(sizeof(char *) * (lenght + 1));
 	if (!tab)
 		return (NULL);
-	check = ft_setalloc(tab, (char *)s, c);
+	check = ft_setalloc(tab, (char *)s);
 	if (check-- > -1)
 	{
 		while (check >= 0)
@@ -121,7 +121,7 @@ char	**ft_split(char const *s, char c)
 		tab = NULL;
 		return (tab);
 	}
-	ft_setstr(tab, (char *)s, c);
+	ft_setstr(tab, (char *)s);
 	return (tab);
 }
 

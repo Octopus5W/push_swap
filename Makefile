@@ -14,12 +14,12 @@ SRCS = \
 	push_swap.c\
 	ft_itoa.c\
 	ft_split.c\
-	ft_split2.c\
 	utils.c\
 	push.c\
 	reverse.c\
 	rotate.c\
-	swap.c     
+	swap.c\
+	algo.c  
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 

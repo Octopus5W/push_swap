@@ -24,7 +24,6 @@ int is_integer(char *s)
 		i++;
 	if(!s[i] && !check[i])
 		return(free(check), 1);
-	ft_printf("error : only int are supported");
 	return (free(check), 0);
 }
 
@@ -57,27 +56,36 @@ int	check_av_isInt(int ac, char *av[])
 {
 	int i;
 
-	i = 0;
+	i = -1;
 	if (ac <= 1)
 		return (1);
 	while (++i < ac && is_integer(av[i]));
-	if (i != ac)
+	if (i == ac)
 		return (1);
+	ft_printf("Only int are supported\n");
 	return (0);
 }
 
-int	check_av_double(int ac, char *av[])
+int	check_av_duplicate(int ac, char *av[])
 {
 	int i;
 	int j;
+	int check;
 
-	i = 0;
+	i = -1;
 	if (ac <= 1)
 		return (1);
-	while (++i < ac && (j = i))
-		while (++j < ac && ft_atoi(av[i]) != ft_atoi(av[j]));
-	if (i != ac)
-		return (1);
+	while (++i < ac && (j = i + 1))
+	{
+		check = ft_atoi(av[i]);
+		while (j < ac && check != ft_atoi(av[j]))
+			j++;
+		if (j < ac)
+		{
+			ft_printf("Duplicate integer not allowed\n");
+			return (1);
+		}
+	}
 	return (0);
 }
 int	check_av(int ac, char *av[])
@@ -87,22 +95,22 @@ int	check_av(int ac, char *av[])
 
 	if (ac > 2)
 	{
-		if (check_av_isInt(ac, av) || check_av_double(ac, av))
+		if (check_av_isInt(ac - 1, av + 1) && !check_av_duplicate(ac - 1, av + 1))
 			return (1);
 		return (0);
 	}
 	else if (ac == 2)
 	{
-		tab = ft_split(av[1], ' ');
+		tab = ft_split(av[1]);
 		if (!tab)
 			return (1);
 		i = 0;
 		while (tab[i])
 			i++;
-		if (check_av_isInt(i, tab) || check_av_double(i, tab))
+		if (check_av_isInt(i, tab) && !check_av_duplicate(i, tab))
 			return (ft_free(i, tab), 1);
 		return (ft_free(i, tab), 0);
 	}
 	else
-		return (1);
+		return (0);
 }
