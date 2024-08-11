@@ -16,6 +16,7 @@ typedef struct s_variable
 	int count_mouv;
 	int i;
 	int j;
+	int nb_ref;
 	char **split;
 } t_variable;
 
@@ -36,5 +37,6 @@ void rr(t_variable *var);
 void sa(t_variable *var);
 void sb(t_variable *var);
 void ss(t_variable *var);
+void algo(t_variable *var);
 
 #endif
