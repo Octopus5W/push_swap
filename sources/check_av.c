@@ -20,6 +20,8 @@ int is_integer(char *s)
 	if (!check)
 		return (0);
 	i = 0;
+	if (s[i] == '+')
+		i++;
 	while (s[i] == check[i] && check[i] && s[i])
 		i++;
 	if(!s[i] && !check[i])
