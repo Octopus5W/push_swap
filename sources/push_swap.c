@@ -78,7 +78,7 @@ int main (int ac, char *av[])
 		print_lists(var);
 		algo(&var);
 		print_lists(var);
-		ft_printf("number of mouvement : %d\n", var.count_mouv);
+		ft_printf("number of movement : %d\n", var.count_mouv);
 	}
 	else
 		ft_printf ("error : count argument");

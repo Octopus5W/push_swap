@@ -10,11 +10,14 @@ typedef struct s_variable
 	int	size_a;
 	int	list_b[500];
 	int	size_b;
-	int min_mouve[4];
+	int	t_list[500];
+	int	t_size;
+	int next_move[4];
 	int max;
 	int min;
+	int before;
+	int after;
 	int median;
-	int next_mouve;
 	int count_nb;
 	int count_mouv;
 	int count;
