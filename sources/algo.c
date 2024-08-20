@@ -92,9 +92,9 @@ void select_move(t_variable *var)
 				var->after = var->j + 1;
 			}
 			//
-			//condition for next move
-			if ((var->list_a[var->i] < var->min && var->list_b[var->j] == var->max) ||
-				(var->list_a[var->i] > var->max && var->list_b[var->j] == var->min) ||
+			//condition for next move // last condition utils ?
+			if ((var->list_a[var->i] < var->min && var->list_b[var->j] == var->max && var->list_b[var->before] == var->min) ||
+				(var->list_a[var->i] > var->max && var->list_b[var->j] == var->max && var->list_b[var->before] == var->min)  ||
 				(var->list_a[var->i] < var->max && var->list_a[var->i] > var->min && 
 				var->list_b[var->before] > var->list_a[var->i] && var->list_b[var->j] < var->list_a[var->i]))
 			{
@@ -153,10 +153,10 @@ void algo(t_variable *var)
 					pb(var);
 			}
 	}
-	// while (var->size_b)
-	// 	pa(var);
-	// while (var->min != var->list_a[0])
-	// 	ra(var);
+	while (var->size_b)
+		pa(var);
+	while (var->min != var->list_a[0])
+		ra(var);
 }
 
 // void algo(t_variable *var)
