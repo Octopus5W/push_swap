@@ -1,6 +1,6 @@
 #include "../include/push_swap.h"
 
-void rra(t_variable *var)
+char* rra(t_variable *var)
 {
 	var->t_list[0] = var->list_a[var->size_a - 1];
 	cp_list(var->t_list + 1, var->list_a, var->size_a - 1);
@@ -8,8 +8,9 @@ void rra(t_variable *var)
 	var->next_move[0]--;
 	var->next_move[1]--;
 	var->count_mouv++;
+	return ("rra\n");
 };
-void rrb(t_variable *var)
+char* rrb(t_variable *var)
 {
 	var->t_list[0] = var->list_b[var->size_b - 1];
 	cp_list(var->t_list + 1, var->list_b, var->size_b - 1);
@@ -17,12 +18,14 @@ void rrb(t_variable *var)
 	var->next_move[0]--;
 	var->next_move[2]--;
 	var->count_mouv++;
+	return ("rrb\n");
 };
 
-void rrr(t_variable *var)
+char* rrr(t_variable *var)
 {
 	rra(var);
 	rrb(var);
 	var->next_move[0]++;
 	var->count_mouv--;
+	return ("rrr\n");
 };

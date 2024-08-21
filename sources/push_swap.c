@@ -75,10 +75,10 @@ int main (int ac, char *av[])
 			set_list(&var, var.split);
 			ft_free(var.count_nb, var.split);
 		}
-		print_lists(var);
+		// print_lists(var);
 		algo(&var);
-		print_lists(var);
-		ft_printf("number of movement : %d\n", var.count_mouv);
+		// print_lists(var);
+		ft_printf("number of movement : \n\n%d\n", var.count_mouv);
 	}
 	else
 		ft_printf ("error : count argument");

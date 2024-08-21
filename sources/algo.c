@@ -1,23 +1,23 @@
 #include "push_swap.h"
-
-int	check_list(t_variable *var)
+#include <stdio.h>
+int	check_list(t_variable var)
 {
-	var->i = 0;
-	var->j = 0;
-	while (var->i < var->size_a - 1)
+	var.i = 0;
+	var.j = 0;
+	while (var.i < var.size_a - 1)
 	{
-		if (var->list_a[var->i] > var->list_a[var->i + 1])
+		if (var.list_a[var.i] > var.list_a[var.i + 1])
 			return (0);
-		var->i++;
+		var.i++;
 	}
-	while (var->j < var->size_b - 1)
+	while (var.j < var.size_b - 1)
 	{
-		if (var->list_b[var->j] < var->list_b[var->j + 1])
+		if (var.list_b[var.j] < var.list_b[var.j + 1])
 			return (0);
-		var->j++;
+		var.j++;
 	}
-	var->i = 0;
-	var->j = 0;
+	var.i = 0;
+	var.j = 0;
 	return(1);
 }
 
@@ -33,7 +33,7 @@ int count_move(t_variable var)
 		}
 		else if (var.i != 0)
 			var.i--;
-		else
+		else if (var.j != 0)
 			var.j--;
 		var.count++;
 	}
@@ -51,7 +51,7 @@ int count_move_rev(t_variable var)
 		}
 		else if (var.i != 0)
 			var.i++;
-		else
+		else if (var.j != 0)
 			var.j++;
 		if (var.i == var.size_a)
 			var.i = 0;
@@ -76,27 +76,15 @@ void select_move(t_variable *var)
 		while (var->j < var->size_b)
 		{
 			// set before after
-			if (var->j == var->size_b - 1)
-			{
-				var->before = var->j - 1;
-				var->after = 0;
-			}
-			else if (var->j == 0)
-			{
-				var->before = var->size_b - 1;
-				var->after = var->j + 1;
-			}
+			if (var->j == 0)
+				var->before = (var->size_b) - 1;
 			else
-			{
-				var->before = var->j - 1;
-				var->after = var->j + 1;
-			}
+				var->before = (var->j) - 1;
 			//
 			//condition for next move // last condition utils ?
-			if ((var->list_a[var->i] < var->min && var->list_b[var->j] == var->max && var->list_b[var->before] == var->min) ||
-				(var->list_a[var->i] > var->max && var->list_b[var->j] == var->max && var->list_b[var->before] == var->min)  ||
-				(var->list_a[var->i] < var->max && var->list_a[var->i] > var->min && 
-				var->list_b[var->before] > var->list_a[var->i] && var->list_b[var->j] < var->list_a[var->i]))
+			if ((var->list_a[var->i] < var->min && var->list_b[var->j] == var->max) ||
+				(var->list_a[var->i] > var->max && var->list_b[var->j] == var->max)  ||
+				(var->list_a[var->i] < var->max && var->list_a[var->i] > var->min && var->list_b[var->before] > var->list_a[var->i] && var->list_b[var->j] < var->list_a[var->i]))
 			{
 				var->count = count_move(*var);
 				var->rev = 0;
@@ -122,37 +110,41 @@ void select_move(t_variable *var)
 
 void algo(t_variable *var)
 {
-	while (!check_list(var))
+	while (!check_list(*var))
 	{
 		if (var->size_a > 0 && var->size_b < 2)
-			pb(var);
+			ft_printf("%s", pb(var));
 		else
 			{
 				select_move(var);
 				if (var->size_a == 0)
 					break;
-				while (var->next_move[0] > 0 && var->next_move[3])
+				while ((var->next_move[1] > 0 || var->next_move[2] > 0) && var->next_move[3])
 				{
 					if (var->next_move[1] > 0 && var->next_move[2] > 0)
-						rrr(var);
+						ft_printf("%s", rrr(var));
 					else if (var->next_move[1] > 0)
-						rra(var);
+						ft_printf("%s", rra(var));
 					else if (var->next_move[2] > 0)
-						rrb(var);		
+						ft_printf("%s", rrb(var));		
 				}
-				while (var->next_move[0] > 0 && !var->next_move[3])
+				while ((var->next_move[1] > 0 || var->next_move[2] > 0) && !var->next_move[3])
 				{
 					if (var->next_move[1] > 0 && var->next_move[2] > 0)
-						rr(var);
+						ft_printf("%s", rr(var));
 					else if (var->next_move[1] > 0)
-						ra(var);
+						ft_printf("%s", ra(var));
 					else if (var->next_move[2] > 0)
-						rb(var);
+						ft_printf("%s", rb(var));
 				}
 				if (var->size_a > 0 && var->next_move[0] == 0)
-					pb(var);
+					ft_printf("%s", pb(var));
 			}
 	}
+
+//pb a 18
+
+
 	while (var->size_b)
 		pa(var);
 	while (var->min != var->list_a[0])

@@ -37,17 +37,17 @@ int get_int_min(int *list, int len);
 int get_int_max(int *list, int len);
 int get_int_median(int *list, int len);
 void	ft_free(int size, char **tab);
-void pa(t_variable *var);
-void pb(t_variable *var);
-void rra(t_variable *var);
-void rrb(t_variable *var);
-void rrr(t_variable *var);
-void ra(t_variable *var);
-void rb(t_variable *var);
-void rr(t_variable *var);
-void sa(t_variable *var);
-void sb(t_variable *var);
-void ss(t_variable *var);
+char* pa(t_variable *var);
+char* pb(t_variable *var);
+char* rra(t_variable *var);
+char* rrb(t_variable *var);
+char* rrr(t_variable *var);
+char* ra(t_variable *var);
+char* rb(t_variable *var);
+char* rr(t_variable *var);
+char* sa(t_variable *var);
+char* sb(t_variable *var);
+char* ss(t_variable *var);
 void algo(t_variable *var);
 
 #endif
