@@ -70,10 +70,3 @@ char	*ft_itoa(int n)
 	}
 	return (s);
 }
-// #include <stdio.h>
-// #include <stdlib.h>
-// int	main(void)
-// {
-// 	printf("<%s>\n", ft_itoa(-2147483647 -1));
-// 	printf("<%s>", itoa(-2147483648));
-// }

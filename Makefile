@@ -10,16 +10,19 @@ OBJ_DIR = obj
 RM = rm -rf
 
 SRCS = \
+	algo.c\
 	check_av.c\
-	push_swap.c\
 	ft_itoa.c\
 	ft_split.c\
-	utils.c\
+	push_swap.c\
 	push.c\
 	reverse.c\
 	rotate.c\
 	swap.c\
-	algo.c  
+	utils1.c\
+	utils2.c\
+	utils3.c\
+	utils4.c
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 

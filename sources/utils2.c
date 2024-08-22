@@ -48,26 +48,31 @@ int get_int_median(int *list, int len)
 	return (median);
 }
 
-int *cp_list(int *dst, int *src, int i)
+int	closest_int_down(int nb, int *list, int size)
 {
-	int j;
+	int i;
+	int closest_down;
 
-	j = 0;
-	while (j < i)
+	closest_down = get_int_max(list, size);
+		i = -1;
+	while (++i < size)
 	{
-		dst[j] = src[j];
-		j++;
+		if ((list[i] < nb && list[i] > closest_down) || (list[i] < nb && closest_down > nb))
+			closest_down = list[i];
 	}
-	return (dst);
+	return (closest_down);
 }
-
-void	ft_free(int size, char **tab)
+int	closest_int_up(int nb, int *list, int size)
 {
-		while (--size >= 0)
-		{
-			free(tab[size]);
-			tab[size] = NULL;
-		}
-		free (tab);
-		tab = NULL;
+	int i;
+	int closest_up;
+
+	closest_up = get_int_min(list, size);
+	i = -1;
+	while (++i < size)
+	{
+		if ((list[i] > nb && list[i] < closest_up) || (list[i] > nb && closest_up < nb))
+			closest_up = list[i];
+	}
+	return(closest_up);
 }

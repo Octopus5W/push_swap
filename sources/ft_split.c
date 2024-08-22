@@ -109,6 +109,8 @@ char	**ft_split(char const *s)
 	if (!s)
 		return (NULL);
 	lenght = ft_tablen((char *)s);
+	if (lenght < 2 || lenght > 500)
+		return (NULL);
 	tab = (char **)malloc(sizeof(char *) * (lenght + 1));
 	if (!tab)
 		return (NULL);
@@ -124,14 +126,3 @@ char	**ft_split(char const *s)
 	ft_setstr(tab, (char *)s);
 	return (tab);
 }
-
-/*
-#include <stdio.h>
-int main ()
-{
-	char c = 0;
-	int i = 0;
-	char **tab = ft_split("Hello!",' ');
-	while (tab[i])
-		printf("<%s>\n", tab[i++]);
-}*/
