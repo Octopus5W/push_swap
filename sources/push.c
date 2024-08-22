@@ -9,7 +9,6 @@ char* pa(t_variable *var)
 	var->size_b--;
 	cp_list(var->t_list, var->list_b+1, var->size_b);	
 	cp_list(var->list_b, var->t_list, var->size_b);
-	var->count_mouv++;
 	return("pa\n");
 };
 
@@ -22,6 +21,5 @@ char* pb(t_variable *var)
 	var->size_a--;
 	cp_list(var->t_list, var->list_a+1, var->size_a);
 	cp_list(var->list_a, var->t_list, var->size_a);
-	var->count_mouv++;
 	return("pb\n");
 };

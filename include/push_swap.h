@@ -12,7 +12,6 @@ typedef struct s_variable
 	int	size_b;
 	int	t_list[500];
 	int	t_size;
-	int next_move[4];
 	int max;
 	int min;
 	int before;
