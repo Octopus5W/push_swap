@@ -28,7 +28,6 @@ void print_lists(t_variable var)
 void	set_list(t_variable *var, char *nb[])
 {
 	var->i = 0;
-	var->count_mouv = 0;
 	var->count_nb = 0;
 	while (nb[var->count_nb])
 		var->count_nb++;
@@ -65,7 +64,6 @@ int main (int ac, char *av[])
 		// print_lists(var);
 		algo(&var);
 		// print_lists(var);
-		ft_printf("number of movement : \n\n%d\n", var.count_mouv);
 	}
 	else
 		ft_printf ("error : count argument");
