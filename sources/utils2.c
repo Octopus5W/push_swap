@@ -1,6 +1,6 @@
 #include "../include/push_swap.h"
 
-int get_int_max(int *list, int len)
+int get_int_max(int list[], int len)
 {
 	int max;
 
@@ -12,7 +12,7 @@ int get_int_max(int *list, int len)
 	}
 	return (max);
 }
-int get_int_min(int *list, int len)
+int get_int_min(int list[], int len)
 {
 	int min;
 
@@ -25,53 +25,51 @@ int get_int_min(int *list, int len)
 	return (min);
 }
 
-int get_int_median(int *list, int len)
+int get_int_median(int list[], int len)
 {
 	int median;
-	int t_int;
 	int i;
-	int j;
 
-	median = get_int_min(list, len);
-	i = 0;
-	while (++i < len/2)
+	median = -2147483648;
+	i = -1;
+	if (len % 2)
 	{
-		j = -1;
-		t_int = list[0];
-		while (++j < len)
-		{
-			if (list[j] < t_int && t_int > median)
-				t_int = list[j];
-		}
-		median = t_int;
+		while (++i < len/2 + 1)
+			median = closest_int_up(median, list, len);
+	}
+	else
+	{
+		while (++i < len/2)
+			median = closest_int_up(median, list, len);
+		median = median + closest_int_up(median, list, len);
 	}
 	return (median);
 }
 
-int	closest_int_down(int nb, int *list, int size)
+int	closest_int_down(int nb, int list[], int size)
 {
 	int i;
-	int closest_down;
+	long closest_down;
 
-	closest_down = get_int_max(list, size);
+	closest_down = 247483648;
 		i = -1;
 	while (++i < size)
 	{
-		if ((list[i] < nb && list[i] > closest_down) || (list[i] < nb && closest_down > nb))
+		if ((list[i] < nb && list[i] > (long)closest_down) || (list[i] < nb && closest_down > (long)nb))
 			closest_down = list[i];
 	}
 	return (closest_down);
 }
-int	closest_int_up(int nb, int *list, int size)
+int	closest_int_up(int nb, int list[], int size)
 {
 	int i;
-	int closest_up;
+	long closest_up;
 
-	closest_up = get_int_min(list, size);
+	closest_up = -247483649;
 	i = -1;
 	while (++i < size)
 	{
-		if ((list[i] > nb && list[i] < closest_up) || (list[i] > nb && closest_up < nb))
+		if ((list[i] > nb && (long)list[i] < closest_up) || (list[i] > nb && closest_up < (long)nb))
 			closest_up = list[i];
 	}
 	return(closest_up);

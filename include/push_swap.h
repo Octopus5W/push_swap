@@ -40,11 +40,11 @@ void	ft_free(int size, char **tab);
 //
 
 //UTILS2
-int get_int_max(int *list, int len);
-int get_int_min(int *list, int len);
-int get_int_median(int *list, int len);
-int	closest_int_down(int nb, int *list, int size);
-int	closest_int_up(int nb, int *list, int size);
+int get_int_max(int list[], int len);
+int get_int_min(int list[], int len);
+int get_int_median(int list[], int len);
+int	closest_int_down(int nb, int list[], int size);
+int	closest_int_up(int nb, int list[], int size);
 //
 
 //UTILS3
@@ -52,7 +52,7 @@ int	ft_atoi(char *s);
 int is_integer(char *s);
 int	tab_is_integer(char *tab[]);
 int	tab_is_duplicate(char *tab[]);
-int	is_asc(int *list, int size);
+int	is_asc(int list[], int size);
 //
 
 //UTILS4

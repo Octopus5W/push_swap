@@ -97,7 +97,7 @@ int	tab_is_duplicate(char *tab[])
 	return (0);
 }
 
-int	is_asc(int *list, int size)
+int	is_asc(int list[], int size)
 {
 	int i;
 
