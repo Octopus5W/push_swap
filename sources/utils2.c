@@ -34,14 +34,14 @@ int get_int_median(int list[], int len)
 	i = -1;
 	if (len % 2)
 	{
-		while (++i < len/2 + 1)
+		while (++i < (len / 2) + 1)
 			median = closest_int_up(median, list, len);
 	}
 	else
 	{
-		while (++i < len/2)
+		while (++i < len / 2)
 			median = closest_int_up(median, list, len);
-		median = median + closest_int_up(median, list, len);
+		median = (median + closest_int_up(median, list, len)) / 2;
 	}
 	return (median);
 }
@@ -49,13 +49,13 @@ int get_int_median(int list[], int len)
 int	closest_int_down(int nb, int list[], int size)
 {
 	int i;
-	long closest_down;
+	int closest_down;
 
-	closest_down = 247483648;
-		i = -1;
+	closest_down = get_int_min(list, size);
+	i = -1;
 	while (++i < size)
 	{
-		if ((list[i] < nb && list[i] > (long)closest_down) || (list[i] < nb && closest_down > (long)nb))
+		if (list[i] < nb && list[i] > closest_down)
 			closest_down = list[i];
 	}
 	return (closest_down);
@@ -63,13 +63,13 @@ int	closest_int_down(int nb, int list[], int size)
 int	closest_int_up(int nb, int list[], int size)
 {
 	int i;
-	long closest_up;
+	int closest_up;
 
-	closest_up = -247483649;
+	closest_up = get_int_max(list, size);
 	i = -1;
 	while (++i < size)
 	{
-		if ((list[i] > nb && (long)list[i] < closest_up) || (list[i] > nb && closest_up < (long)nb))
+		if (list[i] > nb && list[i] < closest_up)
 			closest_up = list[i];
 	}
 	return(closest_up);

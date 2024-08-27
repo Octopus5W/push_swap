@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
 void algo(t_variable *var)
-{
+{	
 	var->i = -1;
 	var->next_move[4] = 5000;
 	if (var->size_a > 2 && var->size_b == 0)
