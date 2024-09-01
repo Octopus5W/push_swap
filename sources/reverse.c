@@ -6,7 +6,7 @@ char* rra(t_variable *var)
 	cp_list(var->t_list + 1, var->list_a, var->size_a - 1);
 	cp_list(var->list_a, var->t_list, var->size_a);
 	var->next_move[0]++;
-	if (var->next_move[0] == var->size_b)
+	if (var->next_move[0] == var->size_a)
 		var->next_move[0] = 0;
 	return ("rra\n");
 };

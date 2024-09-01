@@ -20,12 +20,15 @@ typedef struct s_variable
 	int median;
 	int before;
 	int after;
+	int up;
+	int down;
 	int i;
 	int j;
 	char **split;
 } t_variable;
 
 void algo(t_variable *var);
+void print_lists(t_variable var);
 int	ft_atoi(char *s);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s);

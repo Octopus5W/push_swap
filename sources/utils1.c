@@ -35,14 +35,18 @@ int *check_worth_move(int *next_move, int i, int j, int range_i, int range_j)
 	count[3] = count_move_up(j, range_j);
 	next_move[0] = i;
 	next_move[2] = j;
-	if (count[0] < count[1] && count[2] < count[3] && (next_move[1] = -1) && (next_move[3] = -1))
+	if (range_j == 0 && count[0] < count[1] && (next_move[1] = -1))
+		next_move[4] = count[0];
+	else if (range_j == 0 && count[0] > count[1] && (next_move[1] = 1))
+		next_move[4] = count[1];
+	else if (count[0] < count[1] && count[2] < count[3] && (next_move[1] = -1) && (next_move[3] = -1))
 		next_move[4] = count[0];
 	else if(count[0] > count[1] && count[2] > count[3] && (next_move[1] = 1) && (next_move[3] = 1))
-		next_move[4] = count[1];		
+		next_move[4] = count[1];
 	else if(count[0] < count[1] && count[2] > count[3] && (next_move[1] = -1) && (next_move[3] = 1))
-		next_move[4] = count[0] + count[3];		
+		next_move[4] = count[0] + count[3];
 	else if(count[0] > count[1] && count[2] < count[3] && (next_move[1] = 1) && (next_move[3] = -1))
-		next_move[4] = count[1] + count[2];		
+		next_move[4] = count[1] + count[2];
 	return (next_move);
 }
 

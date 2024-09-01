@@ -67,6 +67,6 @@ int main (int ac, char *av[])
 	}
 	else
 		ft_printf ("error : count argument");
-	system("leaks push_swap");
+	// system("leaks push_swap");
 	return (0);
 }
