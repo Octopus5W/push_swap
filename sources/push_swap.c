@@ -46,9 +46,9 @@ int main (int ac, char *av[])
 {
 	t_variable var; 
 
-	if (!check_av(ac, av))
+	if (!check_av(ac, av, &var))
 		return (0);
-	// ne fonctionne pas avec 2 argument : faire le split
+	ft_printf("\nmain %p\n", var.split);
 	if(ac >= 2 && ac <= 501)
 	{
 		if (ac > 2)
@@ -56,17 +56,17 @@ int main (int ac, char *av[])
 		else
 		{
 			var.split = ft_split(av[1]);
-			if (!var.split || !*var.split)
-				ft_printf("error : format argument");
+			if (!var.split)
+			{
+				ft_printf("error : format argument or malloc");
+				return (0);
+			}
 			set_list(&var, var.split);
-			ft_free(var.count_nb, var.split);
+			ft_free(&var);
 		}
-		// print_lists(var);
 		algo(&var);
 		// print_lists(var);
 	}
-	else
-		ft_printf ("error : count argument");
-	// system("leaks push_swap");
+	system("leak push_swap");
 	return (0);
 }

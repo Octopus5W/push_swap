@@ -12,8 +12,8 @@ typedef struct s_variable
 	int	size_b;
 	int	t_list[500];
 	int	t_size;
-	int next_move[6];
-	int count_move[6];
+	int next_move[5];
+	int count_move[5];
 	int count_nb;
 	int max;
 	int min;
@@ -32,14 +32,14 @@ void print_lists(t_variable var);
 int	ft_atoi(char *s);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s);
-int	check_av(int ac, char *av[], t_variable *var);
+int	check_av(int ac, char *av[], char** split);
 
 // UTILS1
 int count_move_down(int i);
 int count_move_up(int i, int range_i);
 int *check_worth_move(int *next_move, int i, int j, int range_i, int range_j);
 int *cp_list(int *dst, int *src, int size);
-void	ft_free(t_variable *var);
+void	ft_free(char** tab);
 //
 
 //UTILS2

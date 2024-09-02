@@ -63,13 +63,18 @@ int *cp_list(int *dst, int *src, int size)
 	return (dst);
 }
 
-void	ft_free(int size, char **tab)
+void	ft_free(t_variable *var)
 {
-		while (--size >= 0)
-		{
-			free(tab[size]);
-			tab[size] = NULL;
-		}
-		free (tab);
-		tab = NULL;
+	int i;
+
+	i = 0;
+		ft_printf("\nfree adress tot %p\n", var->split);
+	while (var->split[i])
+	{
+		ft_printf("\nfree adress %p\n", var->split[i]);
+		free(var->split[i]);
+		var->split[i] = NULL;
+	}
+	free(var->split);
+	var->split = NULL;
 }

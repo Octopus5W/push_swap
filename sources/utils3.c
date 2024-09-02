@@ -50,8 +50,8 @@ int is_integer(char *s)
 	while (s[i] == check[i] && check[i] && s[i])
 		i++;
 	if(!s[i] && !check[i])
-		return(free(check), 1);
-	return (free(check), 0);
+		return(free(check), check = NULL, 1);
+	return (free(check), check = NULL, 0);
 }
 
 int	tab_is_integer(char *tab[])

@@ -23,14 +23,16 @@ static int	ft_tablen(char *s)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] != ' ' || (s[i] >= 7 && s[i] <= 13))
+		if (s[i] == ' ' || (s[i] >= 7 && s[i] <= 13))
+				new = 1;
+		else
 		{
 			if (new == 1)
+			{
+				new = 0;
 				count++;
-			new = 0;
+			}
 		}
-		else
-			new = 1;
 		i++;
 	}
 	return (count);
@@ -39,6 +41,7 @@ static int	ft_tablen(char *s)
 static char	*ft_malloc(char *s, int count)
 {
 	s = malloc(sizeof(char) * (count + 1));
+	ft_printf("\nsimple malloc adress %p\n", s);
 	if (!s)
 		return (0);
 	return (s);
@@ -106,6 +109,7 @@ char	**ft_split(char const *s)
 	int		lenght;
 	int		check;
 
+
 	if (!s)
 		return (NULL);
 	lenght = ft_tablen((char *)s);
@@ -115,7 +119,7 @@ char	**ft_split(char const *s)
 	if (!tab)
 		return (NULL);
 	check = ft_setalloc(tab, (char *)s);
-	if (check-- > -1)
+	if (check > -1)
 	{
 		while (check >= 0)
 			free(tab[check--]);
