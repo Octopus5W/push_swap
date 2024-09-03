@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 18:42:11 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/05/06 21:48:31 by hdelbecq         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../include/push_swap.h"
 
 static int	ft_tablen(char *s)
@@ -24,7 +12,7 @@ static int	ft_tablen(char *s)
 	while (s[i])
 	{
 		if (s[i] == ' ' || (s[i] >= 7 && s[i] <= 13))
-				new = 1;
+			new = 1;
 		else
 		{
 			if (new == 1)
@@ -107,7 +95,6 @@ char	**ft_split(char const *s)
 	char	**tab;
 	int		lenght;
 	int		check;
-
 
 	if (!s)
 		return (NULL);

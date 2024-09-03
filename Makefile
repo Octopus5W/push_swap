@@ -21,8 +21,7 @@ SRCS = \
 	swap.c\
 	utils1.c\
 	utils2.c\
-	utils3.c\
-	utils4.c
+	utils3.c
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 

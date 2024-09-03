@@ -1,6 +1,6 @@
 #include "../include/push_swap.h"
 
-void print_lists(t_variable var)
+void	print_lists(t_variable var)
 {
 	var.i = 0;
 	var.j = 0;
@@ -42,13 +42,13 @@ void	set_list(t_variable *var, char *nb[])
 	var->j = 0;
 }
 
-int main (int ac, char *av[])
+int	main(int ac, char *av[])
 {
-	t_variable var; 
+	t_variable	var;
 
 	if (!check_av(ac, av, &var))
 		return (0);
-	if(ac >= 2 && ac <= 501)
+	if (ac >= 2 && ac <= 501)
 	{
 		if (ac > 2)
 			set_list(&var, av + 1);

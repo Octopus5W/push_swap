@@ -3,7 +3,7 @@
 int	ft_atoi(char *s)
 {
 	int	nb;
-	int sign;
+	int	sign;
 
 	nb = 0;
 	sign = 1;
@@ -25,13 +25,13 @@ int	ft_atoi(char *s)
 	return (nb * sign);
 }
 
-int is_integer(char *s)
+int	is_integer(char *s)
 {
-	int i;
-	char *check;
+	int		i;
+	char	*check;
 
 	i = 0;
-	if(!s || !*s)
+	if (!s || !*s)
 		return (0);
 	while ((s[i] >= 7 && s[i] <= 13) || s[i] == 32)
 		i++;
@@ -49,22 +49,24 @@ int is_integer(char *s)
 		i++;
 	while (s[i] == check[i] && check[i] && s[i])
 		i++;
-	if(!s[i] && !check[i])
-		return(free(check), check = NULL, 1);
+	if (!s[i] && !check[i])
+		return (free(check), check = NULL, 1);
 	return (free(check), check = NULL, 0);
 }
 
 int	tab_is_integer(char *tab[])
 {
-	int i;
-	int size;
+	int	i;
+	int	size;
 
 	if (!tab || !*tab || !**tab)
 		return (0);
 	i = -1;
 	size = -1;
-	while (tab[++size]);
-	while (++i < size && is_integer(tab[i]));
+	while (tab[++size])
+		;
+	while (++i < size && is_integer(tab[i]))
+		;
 	if (i == size)
 		return (size);
 	ft_printf("Only int are supported\n");
@@ -73,18 +75,20 @@ int	tab_is_integer(char *tab[])
 
 int	tab_is_duplicate(char *tab[])
 {
-	int i;
-	int j;
-	int check;
-	int size;
+	int	i;
+	int	j;
+	int	check;
+	int	size;
 
 	if (!tab || !*tab || !**tab)
 		return (0);
 	i = -1;
 	size = -1;
-	while (tab[++size]);
-	while (++i < size && (j = i + 1))
+	while (tab[++size])
+		;
+	while (++i < size)
 	{
+		j = i + 1;
 		check = ft_atoi(tab[i]);
 		while (j < size && check != ft_atoi(tab[j]))
 			j++;
