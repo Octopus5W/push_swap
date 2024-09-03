@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:05:52 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 14:16:08 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:32:59 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,25 +60,24 @@ int	main(int ac, char *av[])
 
 	if (!check_av(ac, av, &var))
 		return (0);
-	if (ac >= 2 && ac <= 501)
+	if (ac > 2 && ac <= 501)
+		set_list(&var, av + 1);
+	else if (ac == 2)
 	{
-		if (ac > 2)
-			set_list(&var, av + 1);
-		else
+		var.split = ft_split(av[1]);
+		if (!var.split)
 		{
-			var.split = ft_split(av[1]);
-			if (!var.split)
-			{
-				ft_printf("error : format argument or malloc");
-				return (0);
-			}
-			set_list(&var, var.split);
-			ft_free(&var);
+			ft_printf("error : format argument or malloc");
+			return (0);
 		}
-		if (var.size_a == 2 && var.list_a[0] > var.list_a[1])
-			ft_printf("%s", sa(&var));
-		else			
-			algo(&var);
+		set_list(&var, var.split);
+		ft_free(&var);
 	}
+	if (is_asc(var.list_a, var.size_a))
+		return (0);
+	else if (var.size_a == 2 && var.list_a[0] > var.list_a[1])
+		ft_printf("%s", sa(&var));
+	else
+		algo(&var);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:06:49 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 12:44:35 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:29:59 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int		check_av(int ac, char *av[], t_variable *var);
 // UTILS1
 int		count_move_down(int i);
 int		count_move_up(int i, int max_i);
+int		is_asc(int list[], int size);
 int		*check_worth_move(t_variable *var);
 //
 
