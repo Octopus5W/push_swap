@@ -2,21 +2,21 @@
 
 void	move(t_variable *var)
 {
-		while (var->next_move[1] == -1 && var->next_move[3] == -1 && var->next_move[0] > 0 && var->next_move[2] > 0)//count down
+		while (var->next_move[1] == -1 && var->next_move[3] == -1 && var->next_move[0] > 0 && var->next_move[2] > 0)
 				ft_printf("%s", rr(var));
-		while (var->next_move[1] == 1 && var->next_move[3] == 1 && var->next_move[0] > 0 && var->next_move[2] > 0) // count up
+		while (var->next_move[1] == 1 && var->next_move[3] == 1 && var->next_move[0] > 0 && var->next_move[2] > 0)
 				ft_printf("%s", rrr(var));
-		while (var->next_move[1] == 1 && var->next_move[0] > 0) // count up
+		while (var->next_move[1] == 1 && var->next_move[0] > 0)
 				ft_printf("%s", rra(var));
-		while (var->next_move[3] == 1 && var->next_move[2] > 0) // count up
+		while (var->next_move[3] == 1 && var->next_move[2] > 0)
 				ft_printf("%s", rrb(var));
-		while (var->next_move[1] == -1 && var->next_move[0] > 0)//count down
+		while (var->next_move[1] == -1 && var->next_move[0] > 0)
 				ft_printf("%s", ra(var));
-		while (var->next_move[3] == -1 && var->next_move[2] > 0)//count down
+		while (var->next_move[3] == -1 && var->next_move[2] > 0)
 				ft_printf("%s", rb(var));
 }
 
-void	sort_a_asc(t_variable *var)
+void	sort_three_asc(t_variable *var)
 {
 	var->min = get_int_min(var->list_a, 3);
 	var->max = get_int_max(var->list_a, 3);
@@ -75,7 +75,7 @@ void algo(t_variable *var)
 			move(var);
 			ft_printf("%s", pb(var));
 		}
-		sort_a_asc(var);
+		sort_three_asc(var);
 		while (var->size_b > 0)
 		{
 			var->next_move[4] = 5000;

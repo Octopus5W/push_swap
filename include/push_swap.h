@@ -11,28 +11,27 @@ typedef struct s_variable
 	int	list_b[500];
 	int	size_b;
 	int	t_list[500];
-	int	t_size;
 	int next_move[6];
 	int count_move[6];
-	int count_nb;
 	int max;
 	int min;
-	int median;
-	int before;
-	int after;
-	int up;
-	int down;
 	int i;
 	int j;
 	char **split;
 } t_variable;
 
 void algo(t_variable *var);
+
+// print for correction
 void print_lists(t_variable var);
+//
+
+// UTILS files
 int	ft_atoi(char *s);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s);
 int	check_av(int ac, char *av[], t_variable *var);
+//
 
 // UTILS1
 int count_move_down(int i);
@@ -45,7 +44,6 @@ void	ft_free(t_variable *var);
 //UTILS2
 int get_int_max(int list[], int len);
 int get_int_min(int list[], int len);
-int get_int_median(int list[], int len);
 int	closest_int_down(int nb, int list[], int size);
 int	closest_int_up(int nb, int list[], int size);
 //
@@ -55,14 +53,6 @@ int	ft_atoi(char *s);
 int is_integer(char *s);
 int	tab_is_integer(char *tab[]);
 int	tab_is_duplicate(char *tab[]);
-int	is_asc(int list[], int size);
-//
-
-//UTILS4
-int int_before(int list[], int index, int size);
-int int_after(int list[], int index, int size);
-// 
-
 
 // MOVE
 char* pa(t_variable *var);

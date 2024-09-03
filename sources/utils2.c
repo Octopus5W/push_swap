@@ -25,18 +25,6 @@ int get_int_min(int list[], int len)
 	return (min);
 }
 
-int get_int_median(int list[], int len)
-{
-	int median;
-	int i;
-
-	median = -2147483648;
-	i = -1;
-	while (++i < (len / 2) + 1)
-		median = closest_int_up(median, list, len);
-	return (median);
-}
-
 int	closest_int_down(int nb, int list[], int size)
 {
 	int i;

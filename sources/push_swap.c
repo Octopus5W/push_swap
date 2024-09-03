@@ -28,12 +28,12 @@ void print_lists(t_variable var)
 void	set_list(t_variable *var, char *nb[])
 {
 	var->i = 0;
-	var->count_nb = 0;
-	while (nb[var->count_nb])
-		var->count_nb++;
-	var->size_a = var->count_nb;
+	var->j = 0;
+	while (nb[var->j])
+		var->j++;
+	var->size_a = var->j;
 	var->size_b = 0;
-	while (var->i < var->count_nb)
+	while (var->i < var->j)
 	{
 		var->list_a[var->i] = ft_atoi(nb[var->i]);
 		var->i++;
