@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:06:49 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 12:06:50 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:44:35 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ int		check_av(int ac, char *av[], t_variable *var);
 // UTILS1
 int		count_move_down(int i);
 int		count_move_up(int i, int max_i);
-int		*check_worth_move(int *next_move, int i, int j, int max_i, int max_j);
-int		*cp_list(int *dst, int *src, int size);
-void	ft_free(t_variable *var);
+int		*check_worth_move(t_variable *var);
 //
 
 // UTILS2
@@ -58,6 +56,7 @@ int		get_int_max(int list[], int len);
 int		get_int_min(int list[], int len);
 int		closest_int_down(int nb, int list[], int size);
 int		closest_int_up(int nb, int list[], int size);
+int		*cp_list(int *dst, int *src, int size);
 //
 
 // UTILS3
@@ -65,6 +64,8 @@ int		ft_atoi(char *s);
 int		is_integer(char *s);
 int		tab_is_integer(char *tab[]);
 int		tab_is_duplicate(char *tab[]);
+void	ft_free(t_variable *var);
+//
 
 // MOVE
 char	*pa(t_variable *var);

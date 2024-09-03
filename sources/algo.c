@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:05:20 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 12:05:21 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:16:58 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,7 @@ void	algo(t_variable *var)
 				var->j = -1;
 				while (++var->j < var->size_b)
 				{
-					check_worth_move(var->count_move, var->i, var->j,
-						var->size_a, var->size_b);
+					check_worth_move(var);
 					if (closest_int_down(var->list_a[var->i], var->list_b,
 							var->size_b) == var->list_b[var->j]
 						&& var->count_move[4] < var->next_move[4])
@@ -103,8 +102,7 @@ void	algo(t_variable *var)
 				var->j = -1;
 				while (++var->j < var->size_b)
 				{
-					check_worth_move(var->count_move, var->i, var->j,
-						var->size_a, var->size_b);
+					check_worth_move(var);
 					if (closest_int_up(var->list_b[var->j], var->list_a,
 							var->size_a) == var->list_a[var->i]
 						&& var->count_move[4] < var->next_move[4])

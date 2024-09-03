@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:06:18 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 12:06:19 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:51:30 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,58 +38,55 @@ int	count_move_up(int i, int max_i)
 	return (count);
 }
 
-int	*check_worth_move(int *next_move, int i, int j, int max_i, int max_j)
+void	set_count_move(t_variable *var, int count[4])
+{
+	if (count[0] < count[1])
+	{
+		var->count_move[1] = -1;
+		var->count_move[4] = count[0];
+	}
+	else
+	{
+		var->count_move[1] = 1;
+		var->count_move[4] = count[1];
+	}
+	if (count[2] < count[3])
+	{
+		var->count_move[3] = -1;
+		var->count_move[4] += count[2];
+	}
+	else
+	{
+		var->count_move[3] = 1;
+		var->count_move[4] += count[3];
+	}
+}
+
+int	*check_worth_move(t_variable *var)
 {
 	int	count[4];
 
-	count[0] = count_move_down(i);
-	count[1] = count_move_up(i, max_i);
-	count[2] = count_move_down(j);
-	count[3] = count_move_up(j, max_j);
-	next_move[0] = i;
-	next_move[2] = j;
-	if (max_j == 0 && count[0] < count[1] && (next_move[1] = -1))
-		next_move[4] = count[0];
-	else if (max_j == 0 && count[0] > count[1] && (next_move[1] = 1))
-		next_move[4] = count[1];
-	else if (count[0] < count[1] && count[2] < count[3] && (next_move[1] = -1)
-		&& (next_move[3] = -1))
-		next_move[4] = count[0];
-	else if (count[0] > count[1] && count[2] > count[3] && (next_move[1] = 1)
-		&& (next_move[3] = 1))
-		next_move[4] = count[1];
-	else if (count[0] < count[1] && count[2] > count[3] && (next_move[1] = -1)
-		&& (next_move[3] = 1))
-		next_move[4] = count[0] + count[3];
-	else if (count[0] > count[1] && count[2] < count[3] && (next_move[1] = 1)
-		&& (next_move[3] = -1))
-		next_move[4] = count[1] + count[2];
-	return (next_move);
-}
-
-int	*cp_list(int *dst, int *src, int size)
-{
-	int	j;
-
-	j = 0;
-	while (j < size)
+	count[0] = count_move_down(var->i);
+	count[1] = count_move_up(var->i, var->size_a);
+	count[2] = count_move_down(var->j);
+	count[3] = count_move_up(var->j, var->size_b);
+	var->count_move[0] = var->i;
+	var->count_move[2] = var->j;
+	set_count_move(var, count);
+	if (var->count_move[1] == -1 && var->count_move[1] == var->count_move[3])
 	{
-		dst[j] = src[j];
-		j++;
+		if (count[0] < count[2])
+			var->count_move[4] = count[2];
+		else
+			var->count_move[4] = count[0];
 	}
-	return (dst);
-}
-
-void	ft_free(t_variable *var)
-{
-	int	i;
-
-	i = 0;
-	while (var->split[i])
+	else if (var->count_move[1] == 1 && 
+		var->count_move[1] == var->count_move[3])
 	{
-		free(var->split[i]);
-		var->split[i++] = NULL;
+		if (count[1] < count[3])
+			var->count_move[4] = count[3];
+		else
+			var->count_move[4] = count[1];
 	}
-	free(var->split);
-	var->split = NULL;
+	return (var->count_move);
 }

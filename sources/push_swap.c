@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:05:52 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 12:05:53 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:46:39 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,5 @@ int	main(int ac, char *av[])
 		}
 		algo(&var);
 	}
-	system("leak push_swap");
 	return (0);
 }

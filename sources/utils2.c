@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:06:22 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 12:06:23 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:51:45 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,17 @@ int	closest_int_up(int nb, int list[], int size)
 			closest_up = list[i];
 	}
 	return (closest_up);
+}
+
+int	*cp_list(int *dst, int *src, int size)
+{
+	int	j;
+
+	j = 0;
+	while (j < size)
+	{
+		dst[j] = src[j];
+		j++;
+	}
+	return (dst);
 }
