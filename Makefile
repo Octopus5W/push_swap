@@ -6,7 +6,7 @@
 #    By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 12:06:56 by hdelbecq          #+#    #+#              #
-#    Updated: 2024/09/03 12:06:57 by hdelbecq         ###   ########.fr        #
+#    Updated: 2024/09/03 14:18:58 by hdelbecq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,24 +42,24 @@ OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 all: $(NAME)
 
 $(PRINTF): | $(PRINTF_DIR)
-			@$(MAKE) -C $(PRINTF_DIR)
+			$(MAKE) -C $(PRINTF_DIR)
 
 $(NAME): $(OBJ) $(PRINTF)
-			@$(CC) $(CFLAGS) -o $@ $(OBJ) $(PRINTF) $(INC)
+			$(CC) $(CFLAGS) -o $@ $(OBJ) $(PRINTF) $(INC)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-			@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+			$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 $(OBJ_DIR):
-		@mkdir -p $(OBJ_DIR)
+		mkdir -p $(OBJ_DIR)
 
 clean:
-			@$(RM) $(OBJ_DIR)
-			@$(MAKE) clean -C $(PRINTF_DIR)
+			$(RM) $(OBJ_DIR)
+			$(MAKE) clean -C $(PRINTF_DIR)
 
 fclean: clean
-		@$(RM) $(NAME)
-		@$(MAKE) fclean -C $(PRINTF_DIR)
+		$(RM) $(NAME)
+		$(MAKE) fclean -C $(PRINTF_DIR)
 
 re:        fclean all
 

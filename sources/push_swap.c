@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:05:52 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 12:46:39 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:16:08 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,10 @@ int	main(int ac, char *av[])
 			set_list(&var, var.split);
 			ft_free(&var);
 		}
-		algo(&var);
+		if (var.size_a == 2 && var.list_a[0] > var.list_a[1])
+			ft_printf("%s", sa(&var));
+		else			
+			algo(&var);
 	}
 	return (0);
 }
