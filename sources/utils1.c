@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:06:18 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 12:51:30 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:53:26 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ int	*check_worth_move(t_variable *var)
 		else
 			var->count_move[4] = count[0];
 	}
-	else if (var->count_move[1] == 1 && 
-		var->count_move[1] == var->count_move[3])
+	else if (var->count_move[1] == 1
+		&& var->count_move[1] == var->count_move[3])
 	{
 		if (count[1] < count[3])
 			var->count_move[4] = count[3];

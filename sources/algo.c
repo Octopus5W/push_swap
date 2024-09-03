@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:05:20 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 12:16:58 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/03 12:58:14 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,31 @@ void	worth_rotate_a(t_variable *var, int start)
 	}
 }
 
+void	push_to_a(t_variable *var)
+{
+	sort_three_asc(var);
+	while (var->size_b > 0)
+	{
+		var->next_move[4] = 5000;
+		var->i = -1;
+		while (++var->i < var->size_a)
+		{
+			var->j = -1;
+			while (++var->j < var->size_b)
+			{
+				check_worth_move(var);
+				if (closest_int_up(var->list_b[var->j], var->list_a,
+						var->size_a) == var->list_a[var->i]
+					&& var->count_move[4] < var->next_move[4])
+					cp_list(var->next_move, var->count_move, 5);
+			}
+		}
+		move(var);
+		ft_printf("%s", pa(var));
+	}
+	worth_rotate_a(var, get_int_min(var->list_a, var->size_a));
+}
+
 void	algo(t_variable *var)
 {
 	if (var->size_a > 2)
@@ -92,26 +117,6 @@ void	algo(t_variable *var)
 			move(var);
 			ft_printf("%s", pb(var));
 		}
-		sort_three_asc(var);
-		while (var->size_b > 0)
-		{
-			var->next_move[4] = 5000;
-			var->i = -1;
-			while (++var->i < var->size_a)
-			{
-				var->j = -1;
-				while (++var->j < var->size_b)
-				{
-					check_worth_move(var);
-					if (closest_int_up(var->list_b[var->j], var->list_a,
-							var->size_a) == var->list_a[var->i]
-						&& var->count_move[4] < var->next_move[4])
-						cp_list(var->next_move, var->count_move, 5);
-				}
-			}
-			move(var);
-			ft_printf("%s", pa(var));
-		}
+		push_to_a(var);
 	}
-	worth_rotate_a(var, get_int_min(var->list_a, var->size_a));
 }
