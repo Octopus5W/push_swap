@@ -48,7 +48,6 @@ int main (int ac, char *av[])
 
 	if (!check_av(ac, av, &var))
 		return (0);
-	ft_printf("\nmain %p\n", var.split);
 	if(ac >= 2 && ac <= 501)
 	{
 		if (ac > 2)
@@ -65,7 +64,6 @@ int main (int ac, char *av[])
 			ft_free(&var);
 		}
 		algo(&var);
-		// print_lists(var);
 	}
 	system("leak push_swap");
 	return (0);

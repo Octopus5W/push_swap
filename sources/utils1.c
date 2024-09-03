@@ -68,12 +68,10 @@ void	ft_free(t_variable *var)
 	int i;
 
 	i = 0;
-		ft_printf("\nfree adress tot %p\n", var->split);
 	while (var->split[i])
 	{
-		ft_printf("\nfree adress %p\n", var->split[i]);
 		free(var->split[i]);
-		var->split[i] = NULL;
+		var->split[i++] = NULL;
 	}
 	free(var->split);
 	var->split = NULL;

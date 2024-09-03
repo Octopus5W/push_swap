@@ -41,7 +41,6 @@ static int	ft_tablen(char *s)
 static char	*ft_malloc(char *s, int count)
 {
 	s = malloc(sizeof(char) * (count + 1));
-	ft_printf("\nsimple malloc adress %p\n", s);
 	if (!s)
 		return (0);
 	return (s);

@@ -55,45 +55,45 @@ void algo(t_variable *var)
 {
 	if (var->size_a > 2)
 	{
-		// ft_printf("%s", pb(var));
-		// ft_printf("%s", pb(var));
-		// while (var->size_a > 3)
-		// {
-		// 	var->next_move[4] = 5000;
-		// 	var->i = -1;
-		// 	while (++var->i < var->size_a)
-		// 	{
-		// 		var->j = -1;
-		// 		while (++var->j < var->size_b)
-		// 		{
-		// 			check_worth_move(var->count_move ,var->i, var->j, var->size_a, var->size_b);
-		// 			if (closest_int_down(var->list_a[var->i], var->list_b, var->size_b) == var->list_b[var->j]
-		// 				&& var->count_move[4] < var->next_move[4] )
-		// 					cp_list(var->next_move, var->count_move, 5);
-		// 		}
-		// 	}
-		// 	move(var);
-		// 	ft_printf("%s", pb(var));
-		// }
-		// sort_a_asc(var);
-		// while (var->size_b > 0)
-		// {
-		// 	var->next_move[4] = 5000;
-		// 	var->i = -1;
-		// 	while (++var->i < var->size_a)
-		// 	{
-		// 		var->j = -1;
-		// 		while (++var->j < var->size_b)
-		// 		{
-		// 			check_worth_move(var->count_move ,var->i, var->j, var->size_a, var->size_b);
-		// 			if (closest_int_up(var->list_b[var->j], var->list_a, var->size_a) == var->list_a[var->i]
-		// 				&& var->count_move[4] < var->next_move[4])
-		// 				cp_list(var->next_move, var->count_move, 5);
-		// 		}
-		// 	}
-		// 	move(var);
-		// 	ft_printf("%s", pa(var));
-		// }
+		ft_printf("%s", pb(var));
+		ft_printf("%s", pb(var));
+		while (var->size_a > 3)
+		{
+			var->next_move[4] = 5000;
+			var->i = -1;
+			while (++var->i < var->size_a)
+			{
+				var->j = -1;
+				while (++var->j < var->size_b)
+				{
+					check_worth_move(var->count_move ,var->i, var->j, var->size_a, var->size_b);
+					if (closest_int_down(var->list_a[var->i], var->list_b, var->size_b) == var->list_b[var->j]
+						&& var->count_move[4] < var->next_move[4] )
+							cp_list(var->next_move, var->count_move, 5);
+				}
+			}
+			move(var);
+			ft_printf("%s", pb(var));
+		}
+		sort_a_asc(var);
+		while (var->size_b > 0)
+		{
+			var->next_move[4] = 5000;
+			var->i = -1;
+			while (++var->i < var->size_a)
+			{
+				var->j = -1;
+				while (++var->j < var->size_b)
+				{
+					check_worth_move(var->count_move ,var->i, var->j, var->size_a, var->size_b);
+					if (closest_int_up(var->list_b[var->j], var->list_a, var->size_a) == var->list_a[var->i]
+						&& var->count_move[4] < var->next_move[4])
+						cp_list(var->next_move, var->count_move, 5);
+				}
+			}
+			move(var);
+			ft_printf("%s", pa(var));
+		}
 	}
-	// worth_rotate_a(var, get_int_min(var->list_a, var->size_a));
+	worth_rotate_a(var, get_int_min(var->list_a, var->size_a));
 }
