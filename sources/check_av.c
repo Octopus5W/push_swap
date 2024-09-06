@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:05:29 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/06 19:24:11 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/06 20:38:13 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ int	check_av(int ac, char *av[], t_variable *var)
 		else if (tab_is_integer(var->split) && !tab_is_duplicate(var->split))
 			return (ft_free(var), 1);
 		else
+		{
+			ft_printf("Error\n");
 			return (ft_free(var), 0);
+		}
 	}
 	else
 		return (0);
