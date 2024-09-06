@@ -108,10 +108,10 @@ char	**ft_split(char const *s)
 	int		lenght;
 	int		check;
 
-	if (!s)
+	if (!s || !*s)
 		return (NULL);
 	lenght = ft_tablen((char *)s);
-	if (lenght < 2 || lenght > 500)
+	if (lenght < 1 || lenght > 500)
 		return (NULL);
 	tab = (char **)malloc(sizeof(char *) * (lenght + 1));
 	if (!tab)

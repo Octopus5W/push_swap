@@ -6,13 +6,13 @@
 #    By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/03 12:06:56 by hdelbecq          #+#    #+#              #
-#    Updated: 2024/09/03 14:18:58 by hdelbecq         ###   ########.fr        #
+#    Updated: 2024/09/06 19:20:38 by hdelbecq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g #-fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -g
 PRINTF_DIR = printf
 PRINTF = $(PRINTF_DIR)/printf.a
 INC_DIR = include

@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:06:49 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 14:29:59 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:43:14 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,18 @@ typedef struct s_variable
 	char	**split;
 }			t_variable;
 
-void	algo(t_variable *var);
-
 // print for correction
 void	print_lists(t_variable var);
 //
+
+void	algo(t_variable *var);
 
 // UTILS files
 int		ft_atoi(char *s);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s);
 int		check_av(int ac, char *av[], t_variable *var);
+void	sort_three_asc(t_variable *var);
 //
 
 // UTILS1

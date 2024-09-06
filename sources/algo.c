@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:05:20 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 12:58:14 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:50:07 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	push_to_a(t_variable *var)
 
 void	algo(t_variable *var)
 {
-	if (var->size_a > 2)
+	if (var->size_a > 3)
 	{
 		ft_printf("%s", pb(var));
 		ft_printf("%s", pb(var));

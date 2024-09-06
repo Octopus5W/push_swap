@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:05:52 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 14:32:59 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/06 19:16:04 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int ac, char *av[])
 		var.split = ft_split(av[1]);
 		if (!var.split)
 		{
-			ft_printf("error : format argument or malloc");
+			ft_printf("Error\n");
 			return (0);
 		}
 		set_list(&var, var.split);
@@ -77,7 +77,8 @@ int	main(int ac, char *av[])
 		return (0);
 	else if (var.size_a == 2 && var.list_a[0] > var.list_a[1])
 		ft_printf("%s", sa(&var));
-	else
-		algo(&var);
+	else if (var.size_a == 3)
+		sort_three_asc(&var);
+	algo(&var);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:06:27 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 12:11:49 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/06 19:23:26 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ int	tab_is_integer(char *tab[])
 		;
 	if (i == size)
 		return (size);
-	ft_printf("Only int are supported\n");
 	return (0);
 }
 
@@ -105,10 +104,7 @@ int	tab_is_duplicate(char *tab[])
 		while (j < size && check != ft_atoi(tab[j]))
 			j++;
 		if (j < size)
-		{
-			ft_printf("Duplicate integer not allowed\n");
 			return (j);
-		}
 	}
 	return (0);
 }
