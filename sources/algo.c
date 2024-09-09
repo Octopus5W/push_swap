@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:05:20 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 17:50:07 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/09 15:53:35 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	sort_three_asc(t_variable *var)
 		ft_printf("%s", rra(var));
 		ft_printf("%s", sa(var));
 	}
+	else if (var->max == var->list_a[1] && var->min == var->list_a[2])
+		ft_printf("%s", rra(var));
 	else if (var->max == var->list_a[2] && var->min == var->list_a[1])
 		ft_printf("%s", sa(var));
 }
@@ -55,7 +57,7 @@ void	worth_rotate_a(t_variable *var, int start)
 	var->i = -1;
 	while (var->list_a[++var->i] != start)
 		;
-	if (var->i < var->size_a)
+	if (var->i < var->size_a / 2)
 	{
 		while (var->i-- > 0)
 			ft_printf("%s", ra(var));
