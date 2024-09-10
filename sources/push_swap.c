@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:05:52 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/06 19:16:04 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/10 15:00:11 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int ac, char *av[])
 		var.split = ft_split(av[1]);
 		if (!var.split)
 		{
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			return (0);
 		}
 		set_list(&var, var.split);
