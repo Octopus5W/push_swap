@@ -6,14 +6,14 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:06:49 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/03 17:43:14 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/12 17:52:53 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../printf/libft.h"
+# include "../printf/printf.h"
 # include <stdlib.h>
 
 typedef struct s_variable

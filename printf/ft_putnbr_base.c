@@ -6,11 +6,11 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 15:18:35 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/05/14 15:20:16 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/12 17:52:14 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
 static size_t	ft_check_base(char *base)
 {

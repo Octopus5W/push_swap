@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 12:06:27 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/06 19:23:26 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/12 17:50:06 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,9 @@ int	is_integer(char *s)
 	char	*check;
 
 	i = 0;
-	if (!s || !*s)
-		return (0);
 	while ((s[i] >= 7 && s[i] <= 13) || s[i] == 32)
 		i++;
-	while (s[i] == '+' || s[i] == '-')
+	if (s[i] == '+' || s[i] == '-')
 		i++;
 	while (s[i] >= '0' && s[i] <= '9')
 		i++;
@@ -57,8 +55,10 @@ int	is_integer(char *s)
 	if (!check)
 		return (0);
 	i = 0;
-	if (s[i] == '+')
+	if (s[i] == '+' && s[i + 1])
 		i++;
+	while (s[i] == '0' && s[i+1])
+		s++;
 	while (s[i] == check[i] && check[i] && s[i])
 		i++;
 	if (!s[i] && !check[i])

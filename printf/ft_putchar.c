@@ -6,11 +6,11 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 15:17:48 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/05/14 15:18:26 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/12 17:52:10 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
 int	ft_putchar(int c)
 {
